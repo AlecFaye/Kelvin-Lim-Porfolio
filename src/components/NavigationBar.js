@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import logo from "../assets/img/logo.svg";
+import logo from "../assets/img/faye-foundations-logo.svg";
 import navIcon1 from "../assets/img/nav-icon1.svg";
 
 const NavigationBar = () => {
-
   const [activeLink, setActiveLink] = useState("home");
   const [scrolled, setScrolled] = useState(false);
 
