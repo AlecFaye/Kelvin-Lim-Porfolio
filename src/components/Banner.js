@@ -52,7 +52,7 @@ const Banner = () => {
                     <Col xs={ 12 } md={ 6 } xl={ 7 }>
                         <span className="tagline">Hi, I'm Kelvin.</span>
                         <h1><span className="wrap">[ { text } ]</span></h1>
-                        <p>I am a versatile software developer by DAY and aspiring game developer by NIGHT.</p>
+                        <p>I am a software developer by DAY and game developer by NIGHT.</p>
                         <p>"Better today, even better tomorrow."</p>
                         <button 
                             onClick={ (event) => {
