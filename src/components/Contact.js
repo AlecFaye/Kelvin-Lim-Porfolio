@@ -15,6 +15,12 @@ const Contact = () => {
     const [buttonText, setButtonText] = useState("Send");
     const [status, setStatus] = useState({});
 
+    useEffect(() => {
+        fetch("/api/hello")
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+    }, []);
+
     const onFormUpdate = (category, value) => {
         setFormDetails({
             ...formDetails,
@@ -25,7 +31,7 @@ const Contact = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         setButtonText("Sending...");
-        let response = await fetch("/contact", {
+        let response = await fetch("/api/contact", {
             method: "POST",
             headers: {
                 "Content-Type": "Application/json;charset=utf-8",

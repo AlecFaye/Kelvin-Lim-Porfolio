@@ -1,25 +1,19 @@
-const path = require("path");
-const express = require("express");
-// const cors = require("cors");
-const nodemailer = require("nodemailer");
-const bodyParser = require("body-parser");
+import express, { Router } from "express";
+import serverless from "serverless-http";
+import nodemailer from "nodemailer";
+import bodyParser from "body-parser";
 
 require('dotenv').config();
 
-const PORT = process.env.PORT || 3001;
 const EMAIL_ADDRESS = process.env.EMAIL_ADDRESS;
 const EMAIL_PASSWORD = process.env.EMAIL_PASSWORD;
 
-const app = express();
-const router = express.Router();
+const api = express();
+const router = Router();
 
-// app.use(express.static(path.resolve(__dirname, "../build")));
-app.use(express.json());
-// app.use(cors());
-app.use("/", router);
-app.use(bodyParser.json());
+api.use(bodyParser.json());
 
-app.listen(PORT, () => console.log(`Server Running on port: ${PORT}`));
+router.get("/hello", (req, res) => res.send( { message: "Hello World!" } ));
 
 const contactEmail = nodemailer.createTransport({
     service: 'gmail',
@@ -35,10 +29,6 @@ contactEmail.verify((error) => {
     } else {
         console.log("Ready to Send");
     }
-});
-
-router.get("/api", (req, res) => {
-    res.send("Hello from the server!");
 });
 
 router.post("/contact", bodyParser.urlencoded({ extended: false }), (req, res) => {
@@ -65,6 +55,6 @@ router.post("/contact", bodyParser.urlencoded({ extended: false }), (req, res) =
     });
 });
 
-// app.get("*", (req, res) => {
-//     res.sendFile(path.resolve(__dirname, "../build", "index.html"));
-// });
+api.use('/api', router);
+
+export const handler = serverless(api);
