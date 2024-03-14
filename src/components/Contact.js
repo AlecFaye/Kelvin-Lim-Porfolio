@@ -15,12 +15,6 @@ const Contact = () => {
     const [buttonText, setButtonText] = useState("Send");
     const [status, setStatus] = useState({});
 
-    useEffect(() => {
-        fetch("/api")
-        .then((res) => res.json())
-        .then((data) => { console.log(data) });
-    }, []);
-
     const onFormUpdate = (category, value) => {
         setFormDetails({
             ...formDetails,
@@ -39,10 +33,11 @@ const Contact = () => {
             body: JSON.stringify(formDetails),
         });
 
+        let result = await response.json();
+
         setButtonText("Send");
         setFormDetails(formInitialDetails);
 
-        let result = response.json();
         if (result.code === 200) {
             setStatus({ success: true, message: "Message send successfully" });
         } else {
