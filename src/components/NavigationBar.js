@@ -58,7 +58,7 @@ const NavigationBar = () => {
                 </Nav>
                 <span className="navbar-text">
                     <div className="social-icon">
-                        <a href="https://www.linkedin.com/in/alec-tl-dev/" target="_blank">
+                        <a href="https://www.linkedin.com/in/alec-tl-dev/">
                             <img src={navIcon1} alt="LinkedIn" />
                         </a>
                         {/* <a href="#"><img src={navIcon2} alt="" /></a>
