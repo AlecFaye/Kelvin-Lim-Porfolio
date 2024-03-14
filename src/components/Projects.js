@@ -93,7 +93,7 @@ const Projects = () => {
                 <Row>
                     <Col>
                         <h2>Projects</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at quam auctor, volutpat lorem at, aliquam ligula.</p>
+                        <p>Featuring a diverse range of projects, each endeavor showcases my passion for problem-solving and creativity.  Explore my work and discover how I can contribute to your next project.</p>
                         <Tab.Container id="projects-tabs" defaultActiveKey="first">
                             <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
                                 <Nav.Item>
