@@ -13,8 +13,6 @@ const router = Router();
 
 api.use(bodyParser.json());
 
-router.get("/hello", (req, res) => res.send( { message: "Hello World!" } ));
-
 const contactEmail = nodemailer.createTransport({
     service: 'gmail',
     auth: {

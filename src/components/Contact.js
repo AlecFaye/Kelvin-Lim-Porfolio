@@ -15,12 +15,6 @@ const Contact = () => {
     const [buttonText, setButtonText] = useState("Send");
     const [status, setStatus] = useState({});
 
-    useEffect(() => {
-        fetch("/api/hello")
-        .then((res) => res.json())
-        .then((data) => console.log(data));
-    }, []);
-
     const onFormUpdate = (category, value) => {
         setFormDetails({
             ...formDetails,
