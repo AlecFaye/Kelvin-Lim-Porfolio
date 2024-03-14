@@ -54,7 +54,13 @@ const Banner = () => {
                         <h1><span className="wrap">[ { text } ]</span></h1>
                         <p>I am a versatile software developer by DAY and aspiring game developer by NIGHT.</p>
                         <p>"Better today, even better tomorrow."</p>
-                        <button onClick={ () => console.log("Connect") }>Let's Connect <ArrowRightCircle size={ 25 } /></button>
+                        <button 
+                            onClick={ (event) => {
+                                window.location.href="#connect";
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                        }>Let's Connect <ArrowRightCircle size={ 25 } /></button>
                     </Col>
                     <Col xs={ 12 } md={ 6 } xl={ 5 }>
                         <img src={ headerImage } alt="Header"/>

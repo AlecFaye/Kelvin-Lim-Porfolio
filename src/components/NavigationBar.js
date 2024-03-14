@@ -63,7 +63,14 @@ const NavigationBar = () => {
                             {/* <a href="#"><img src={navIcon2} alt="" /></a>
                             <a href="#"><img src={navIcon3} alt="" /></a> */}
                         </div>
-                        <button className="vvd"><span>Let's Connect</span></button>
+                        <button 
+                            className="vvd"
+                            onClick={ (event) => {
+                                window.location.href="#connect";
+                                event.preventDefault();
+                                event.stopPropagation();
+                            } 
+                        }><span>Let's Connect</span></button>
                     </span>
                 </Navbar.Collapse>
             </Container>
