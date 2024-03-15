@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import logo from "../assets/img/faye-foundations-logo.svg";
 import linkedInIcon from "../assets/img/nav-icon1.svg";
-import { useNavigate } from "react-router-dom";
+import githubIcon from "../assets/img/github-mark-white.svg";
+import itchIcon from "../assets/img/itchio-logo-textless-white.svg";
 
-const NavigationBar = ( { isHomePage }) => {
+const NavigationBar = ({ isHomePage }) => {
     const [activeLink, setActiveLink] = useState("home");
     const [scrolled, setScrolled] = useState(false);
     const navigate = useNavigate();
@@ -16,7 +18,7 @@ const NavigationBar = ( { isHomePage }) => {
             } else {
                 setScrolled(false);
             }
-        }
+        };
 
         window.addEventListener("scroll", onScroll);
 
@@ -28,10 +30,10 @@ const NavigationBar = ( { isHomePage }) => {
     };
 
     return (
-        <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
+        <Navbar expand="md" className={ scrolled ? "scrolled" : "" }>
             <Container>
                 <Navbar.Brand href="/">
-                    <img src={logo} alt="Logo" />
+                    <img src={ logo } alt="Logo" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav">
                     <span className="navbar-toggler-icon"></span>
@@ -40,7 +42,7 @@ const NavigationBar = ( { isHomePage }) => {
                     <Nav className="ms-auto">
                         <Nav.Link 
                             href="#home" 
-                            className={activeLink === "home" ? "active navbar-link" : "navbar-link"} 
+                            className={ activeLink === "home" ? "active navbar-link" : "navbar-link" } 
                             onClick={ () => {
                                     isHomePage 
                                         ? onUpdateActiveLink("home") 
@@ -52,7 +54,7 @@ const NavigationBar = ( { isHomePage }) => {
 
                         <Nav.Link 
                             href="#projects" 
-                            className={activeLink === "projects" ? "active navbar-link" : "navbar-link"} 
+                            className={ activeLink === "projects" ? "active navbar-link" : "navbar-link" } 
                             onClick={ () => {
                                     isHomePage 
                                         ? onUpdateActiveLink("projects") 
@@ -63,7 +65,7 @@ const NavigationBar = ( { isHomePage }) => {
                         </Nav.Link>
 
                         <Nav.Link 
-                            className={activeLink === "resume" ? "active navbar-link" : "navbar-link"} 
+                            className={ activeLink === "resume" ? "active navbar-link" : "navbar-link" } 
                             onClick={ () => {
                                 onUpdateActiveLink("resume");
                                 navigate("/resume");
@@ -71,23 +73,31 @@ const NavigationBar = ( { isHomePage }) => {
                                 Resume
                         </Nav.Link>
                     </Nav>
-                    {isHomePage && 
-                        <span className="navbar-text">
-                            <div className="social-icon">
-                                <a href="https://www.linkedin.com/in/alec-tl-dev/">
-                                    <img src={ linkedInIcon } alt="LinkedIn" />
-                                </a>
-                            </div>
-                                <button 
-                                    className="vvd"
-                                    onClick={ (event) => {
-                                        window.location.href="#connect";
-                                        event.preventDefault();
-                                        event.stopPropagation();
-                                    }
-                                }><span>Let's Connect</span></button>
-                        </span>
-                    }
+
+                    <span className="navbar-text">
+                        <div className="social-icon">
+                            <a href="https://www.linkedin.com/in/alec-tl-dev/">
+                                <img src={ linkedInIcon } alt="LinkedIn" />
+                            </a>
+                            <a href="https://github.com/AlecFaye">
+                                <img src={ githubIcon } alt="GitHub" />
+                            </a>
+                            <a href="https://alecfaye.itch.io">
+                                <img src={ itchIcon } alt="GitHub" />
+                            </a>
+                        </div>
+                        {
+                            isHomePage && 
+                            <button 
+                                className="vvd"
+                                onClick={ (event) => {
+                                    window.location.href="#connect";
+                                    event.preventDefault();
+                                    event.stopPropagation();
+                                }
+                            }><span>Let's Connect</span></button>
+                        }
+                    </span>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
