@@ -97,10 +97,10 @@ const Projects = () => {
                         <Tab.Container id="projects-tabs" defaultActiveKey="first">
                             <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
                                 <Nav.Item>
-                                    <Nav.Link eventKey="first">Software Development</Nav.Link>
+                                    <Nav.Link eventKey="first">Game Development</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link eventKey="second">Game Development</Nav.Link>
+                                    <Nav.Link eventKey="second">Software Development</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
                                     <Nav.Link eventKey="third">Work In Progress</Nav.Link>
@@ -110,7 +110,7 @@ const Projects = () => {
                                 <Tab.Pane eventKey="first">
                                     <Row>
                                         {
-                                            softwareProjects.map((project, index) => {
+                                            gameProjects.map((project, index) => {
                                                 return (
                                                     <ProjectCard 
                                                         key={ index }
@@ -124,7 +124,7 @@ const Projects = () => {
                                 <Tab.Pane eventKey="second">
                                     <Row>
                                         {
-                                            gameProjects.map((project, index) => {
+                                            softwareProjects.map((project, index) => {
                                                 return (
                                                     <ProjectCard 
                                                         key={ index }

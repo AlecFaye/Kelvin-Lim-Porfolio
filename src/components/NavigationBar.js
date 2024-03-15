@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import logo from "../assets/img/faye-foundations-logo.svg";
 import linkedInIcon from "../assets/img/nav-icon1.svg";
+import { useNavigate } from "react-router-dom";
 
-const NavigationBar = () => {
+const NavigationBar = ( { isHomePage }) => {
     const [activeLink, setActiveLink] = useState("home");
     const [scrolled, setScrolled] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const onScroll = () => {
@@ -39,39 +41,53 @@ const NavigationBar = () => {
                         <Nav.Link 
                             href="#home" 
                             className={activeLink === "home" ? "active navbar-link" : "navbar-link"} 
-                            onClick={() => onUpdateActiveLink("home")}>
+                            onClick={ () => {
+                                    isHomePage 
+                                        ? onUpdateActiveLink("home") 
+                                        : navigate("/")
+                                } 
+                            }>
                                 Home
                         </Nav.Link>
+
                         <Nav.Link 
                             href="#projects" 
                             className={activeLink === "projects" ? "active navbar-link" : "navbar-link"} 
-                            onClick={() => onUpdateActiveLink("projects")}>
+                            onClick={ () => {
+                                    isHomePage 
+                                        ? onUpdateActiveLink("projects") 
+                                        : navigate("/")
+                                }
+                            }>
                                 Projects
                         </Nav.Link>
+
                         <Nav.Link 
-                            href="#resume" 
                             className={activeLink === "resume" ? "active navbar-link" : "navbar-link"} 
-                            onClick={() => onUpdateActiveLink("resume")}>
+                            onClick={ () => {
+                                onUpdateActiveLink("resume");
+                                navigate("/resume");
+                            }}>
                                 Resume
                         </Nav.Link>
                     </Nav>
-                    <span className="navbar-text">
-                        <div className="social-icon">
-                            <a href="https://www.linkedin.com/in/alec-tl-dev/">
-                                <img src={linkedInIcon} alt="LinkedIn" />
-                            </a>
-                            {/* <a href="#"><img src={navIcon2} alt="" /></a>
-                            <a href="#"><img src={navIcon3} alt="" /></a> */}
-                        </div>
-                        <button 
-                            className="vvd"
-                            onClick={ (event) => {
-                                window.location.href="#connect";
-                                event.preventDefault();
-                                event.stopPropagation();
-                            } 
-                        }><span>Let's Connect</span></button>
-                    </span>
+                    {isHomePage && 
+                        <span className="navbar-text">
+                            <div className="social-icon">
+                                <a href="https://www.linkedin.com/in/alec-tl-dev/">
+                                    <img src={ linkedInIcon } alt="LinkedIn" />
+                                </a>
+                            </div>
+                                <button 
+                                    className="vvd"
+                                    onClick={ (event) => {
+                                        window.location.href="#connect";
+                                        event.preventDefault();
+                                        event.stopPropagation();
+                                    }
+                                }><span>Let's Connect</span></button>
+                        </span>
+                    }
                 </Navbar.Collapse>
             </Container>
         </Navbar>

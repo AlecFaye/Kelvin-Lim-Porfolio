@@ -2,7 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import logo from "../assets/img/faye-foundations-logo.svg";
 import linkedInImage from "../assets/img/nav-icon1.svg";
 
-export const Footer = () => {
+const Footer = () => {
     return (
         <footer className="footer pt-3">
             <Container>
@@ -21,3 +21,5 @@ export const Footer = () => {
         </footer>
     );
 };
+
+export default Footer;
