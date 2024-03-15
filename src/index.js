@@ -10,6 +10,7 @@ import {
     RouterProvider
 } from 'react-router-dom';
 import NotFoundPage from './pages/NotFoundPage';
+import './App.css';
 
 const router = createBrowserRouter([
     {
