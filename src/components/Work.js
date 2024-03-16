@@ -10,6 +10,7 @@ const Work = () => {
                 <Row>
                     <Col>
                         <h2>Work Experience</h2>
+                        <h4 className="mb-5">WHAT I HAVE DONE SO FAR</h4>
                         <VerticalTimeline>
                             <VerticalTimelineElement
                                 className="vertical-timeline-element--work"
