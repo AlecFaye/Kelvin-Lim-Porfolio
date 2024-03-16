@@ -44,9 +44,9 @@ const NavigationBar = ({ isHomePage }) => {
                             href="#home" 
                             className={ activeLink === "home" ? "active navbar-link" : "navbar-link" } 
                             onClick={ () => {
-                                    isHomePage 
-                                        ? onUpdateActiveLink("home") 
-                                        : navigate("/")
+                                isHomePage 
+                                    ? onUpdateActiveLink("home") 
+                                    : navigate("/")
                                 } 
                             }>
                                 Home
@@ -56,12 +56,24 @@ const NavigationBar = ({ isHomePage }) => {
                             href="#projects" 
                             className={ activeLink === "projects" ? "active navbar-link" : "navbar-link" } 
                             onClick={ () => {
-                                    isHomePage 
-                                        ? onUpdateActiveLink("projects") 
-                                        : navigate("/")
+                                isHomePage 
+                                    ? onUpdateActiveLink("projects") 
+                                    : navigate("/")
                                 }
                             }>
                                 Projects
+                        </Nav.Link>
+
+                        <Nav.Link 
+                            href="#work" 
+                            className={ activeLink === "work" ? "active navbar-link" : "navbar-link" } 
+                            onClick={ () => {
+                                isHomePage 
+                                    ? onUpdateActiveLink("work") 
+                                    : navigate("/")
+                                }
+                            }>
+                                Work
                         </Nav.Link>
 
                         <Nav.Link 
