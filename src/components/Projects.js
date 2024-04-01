@@ -8,6 +8,7 @@ import kBanImage from "../assets/img/k-ban.png";
 import pokerHandEvaluatorImage from "../assets/img/poker-hand-evaluator.png";
 import minigameWebsiteImage from "../assets/img/minigame-website.png";
 
+import catRunnerImage from "../assets/img/cat-runner.png";
 import chessOfTheElementsImage from "../assets/img/chess-of-the-elements.png";
 import cucqImage from "../assets/img/cucq.png";
 import escapeSimulatorImage from "../assets/img/escape-simulator.png";
@@ -56,6 +57,11 @@ const Projects = () => {
             title: "Chess of the Elements",
             description: "Unity - C#",
             imageURL: chessOfTheElementsImage
+        },
+        {
+            title: "Cat Runner",
+            description: "Unity - C#",
+            imageURL: catRunnerImage
         },
         {
             title: "Escape Simulator",
